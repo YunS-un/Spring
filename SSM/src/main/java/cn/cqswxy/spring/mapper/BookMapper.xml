@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqswxy.spring.mapper.BookMapper">
+	
+	<select id="selectAll" resultType="book">
+		SELECT * FROM book
+	</select>
+	
+	<select id="selectOne" resultType="book">
+		SELECT * FROM book WHERE book_id = #{bookId}
+	</select>
+	
+	<delete id="deleteOne">
+		DELETE FROM book WHERE book_id = #{bookId}
+	</delete>
+	
+	<insert id="insertOne">
+		INSERT INTO book VALUES(DEFAULT,#{bookName},#{bookPrice},#{bookAuthor},#{bookPages})
+	</insert>
+	
+	<update id="updateOne">
+		UPDATE book SET book_name = #{bookName}, book_price = #{bookPrice}, book_author = #{bookAuthor},
+		book_pages = #{bookPages} WHERE book_id = #{bookId}
+	</update>
+</mapper>
